@@ -181,7 +181,7 @@ Now it's time to build an inventory, of which there are two types:
 - An inventory of visual attributes to create a codified visual language.
 - An inventory of each UI element which will be used to create a UI library of components.
 
-#### Creating a visual inventory
+### Creating a visual inventory
 This step requires an already existing product. To create a visual inventory we need to conduct a visual audit. This audit will take all the elements we use, and will allow us to look into the CSS behind all of them using tools like [CSS Stats](https://dbtr.co/CSSstats). It will show you how many unique colors, font sizes, and font families you have. It also shows a bar chart for the number of spacing and sizing values.
 
 <center>
@@ -280,3 +280,122 @@ Is the material quality of your UI and includes:
 
 #### Motion and sound
 Motion and sound can have a high impact on the experience of your app.
+
+### Creating a user interface library
+A user interface library (otherwise known as a pattern library) looks at actual components of a UI. Take stock of all interface elements in production to see just how much design debt you need to address and what elements are most commonly used.
+
+> Warning! This can get a bit depressing, as most companies have an intense amount of inconsistency in their UIs.
+
+To create an interface inventory open all products in production, screenshot all elements and collect them in a slide deck or on big posters where the whole team can see.
+
+Have folks you’re involving conduct this inventory with you. The idea is to gather the different components you’re using and categorize and merge them.
+
+In general, design systems break things down into:
+- Elements (atoms, basics): Small, stand-alone components like buttons and icons
+- Components (molecules, modules): An assembly of small components into a larger component like a search form which includes a form input, a button, and a search icon
+- Regions (zones, organisms): These are areas like a left-hand navigation
+- Layouts: How the pieces are laid out on the page (like a header region, followed by a sidebar and main content area, followed by a footer)
+
+Then you can merge and remove what you don’t need (either in a spreadsheet or even directly in a code refactor if you want more immediate change). Document the component and when to use it. This will become your UI library.
+
+## Further reading
+- [Priyanka Godbole’s Design System article series](https://dbtr.co/priyanka-prototypr)
+- [Nathan Curtis’s Design System article series](https://dbtr.co/nathan-curtis-medium)
+- [Marcin Treder’s Design System article series](https://dbtr.co/mark-treder-design-system)
+- [Brad Frost on creating interface inventories](https://dbtr.co/interface-inventory)
+- [Building a large-scale design system: How we created a design system for the U.S. government by 18F](https://dbtr.co/us-gov-design-system)
+- [Design Systems are for People by Jina Anne](https://dbtr.co/design-systems-people)
+
+
+# Building your design system
+The number of choices available can be overwhelming when choosing a frontend tooling to help you write more maintainable code.
+
+> Your technical approach doesn’t matter as much as creating a living, breathing system that’s flexible, maintainable, stable, scalable, and successful in the long-term.
+
+## Foundations
+Regardless of technology, a design system follows these principles:
+- Consistency: The way components are built and managed follows a predictable pattern.
+- Self-contained: Your design system is treated as a standalone dependency.
+- Reusable: You’ve built components used in multiple contexts
+- Accessible: Usable by as many people as possible, no matter how they access the web.
+- Robust: No matter the product or platform to which your design system is applied, it should perform with grace and minimal bugs.
+
+## Consistency
+When you have clearly documented code standards and best practices in place, designers and developers can easily use and, contribute to your design system.
+
+### Code style guides
+Code style guides provide the grammar rules of syntax and semantics for your code. Code semantics provide the rules for making your code understandable.
+
+[Do fight pointless pointless wars over tabs versus spaces](https://www.youtube.com/watch?v=SsoOG6ZeyUI)
+
+### Automating code style
+Help your contributors write code that follows the rules through linting and tooling.
+
+Linting is an automated process of analyzing code and raising errors when code either doesn’t adhere to your syntax rules or is broken, buggy, or malformed.
+
+
+### Code editor configuration
+EditorConfig.org provides a cross-platform format to define stylistic rules for most code editors and IDEs, so you can automatically convert your tabs into spaces—thus ending the tabs versus spaces war!
+
+## Self-contained
+Your design system should live in a source control repository independent from your main codebase.
+
+Benefits:
+- Enables versioned releases of your code
+- Allows you to share code across multiple codebases
+- Forces you to develop components in isolation
+- Provides infrastructure for a robust front-end testing architecture
+- Forms a foundation for a living style guide website
+- Functions as a single source of truth.
+
+Ideally, all of the code for each component within your system is co-located. The closer the pieces are to each other, the easier it is to maintain.
+
+## Reusable
+Successful design systems are highly reusable. Writing components to be reused in multiple contexts is vitally important.
+
+To be reusable and scalable, patterns need to be modular, composable, generic, and flexible:
+- Modular components are self-contained with no dependencies
+- Composable components can be combined to create new patterns
+- Generic components can handle multiple use cases
+- Flexible components can be tweaked and extended to work in a variety of contexts
+
+### Modular CSS architecture
+Reusability and scalability in design systems begin with taking a modular approach to your code architecture. Whichever methodology system you use should have these fundamentals:
+- It has clear naming conventions for components, variations, and utilities
+- It’s tightly-scoped and has low-specificity CSS that limits unintentional side effects
+- It has utility classes that allow you to modify styles in a managed way
+- It has rules for building modular, composable, generic, and flexible components
+
+Learn more about CSS architectures [here](https://dbtr.co/CSSguidelines)
+
+## Accessible
+Accessibility, is not just for a small group, but for an estimated 15% of people worldwide with a wide spectrum of permanent or temporary visual, auditory, motor, and cognitive impairments.
+
+> “[Accessibility testing] gives developers a starting point to say ‘here are some errors that I have  tangible ways to go fix now.” — Alicia sedlock — Frontend Engineer & Accessibility Advocate
+
+Improving your site’s accessibility can help improve SEO and help avoid costly lawsuits.
+
+### Enforce a11y with your design system
+- Test your color usage against established color contrast [guidelines](https://dbtr.co/contrast-grid).
+- Build components to be keyboard and screen reader accessible by default. The [Ebay Accessibility MIND pattern library](https://dbtr.co/MINDpatterns) is an amazing, thorough resource to help guide development of accessible components and best practices.
+- Encourage contributors to build according to these guidelines and test their code using keyboard-only navigation and assistive technology devices like screen readers.
+- Include in your documentation code standards and guidelines for common a11y best practices such as using larger, legible text sizes, always associating a form field with a label, and properly adding alt text attributes to images, to name a few. Salesforce’s Lightning design system and Shopify’s Polaris are great examples of accessibility guidelines in practice
+
+## Robust
+Testing provides confidence in your code, which facilitates adoption. Users will know that they can upgrade or change their UI without it breaking in unexpected ways. Your design system forms a foundation for testing your front-end code.
+
+### Test your design system instead of your complicated UI
+Narrow the scope of your tests and gain more confidence in your front-end code by testing your design system components. Use the different states of each component for your documentation as test fixtures.
+
+### Types of tests
+- Unit testing: Verify that small units of code (usually individual JavaScript functions) behave as expected. Some popular frameworks to use are Mocha, Jasmine, and Jest.
+- Functional testing: In functional tests, examples of your code, or “fixtures” are run in a virtual “headless” browser, then tested by performing simulated user actions, and checking the new state of the browser for the expected result of those actions. Functional testing frameworks include Nightwatch, Protractor, and Casper.
+- Visual regression testing: These tests help catch unintended visual changes to component styles. The test framework takes screenshots of your fixtures both before and after the changes, then compares them using an algorithm to detect visual differences. There are open source frameworks like Wraith, Gemini, and BackstopJS, as well as paid services like Applitools and Percy.io. Go to Kevin Lamping’s excellent resource [Visual Regression Testing](https://dbtr.co/visual-regression) for more information and options.
+- Automated accessibility testing: Leverage tooling to ensure that your components are accessible. Some options for running automated a11y audits are Paypal’s [AATT](https://dbtr.co/AATT) and [a11y](https://dbtr.co/a11y_addyosmani) by Addy Osmani, and [aXe](https://dbtr.co/aXe) by Deque Systems
+
+## Common challenges
+- Keeping documentation up-to-date with your system code
+- Handling breaking changes
+- Avoiding performance degradations
+
+> PAGE 100
