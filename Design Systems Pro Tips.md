@@ -30,3 +30,18 @@ A fundamental best practice in software development is Don’t Repeat Yourself (
 
 ## Namespacing
 Working with legacy code? Choose a unique, short, and simple namespace to prefix your classes, e.g. `.ds-[component name]`. This will avoid class collisions when mixing multiple libraries on a page, and ensure you know that your `.ds-btn` class is different from the `.btn` class from Bootstrap.
+
+## Cupper
+Heydon Pickering of the Paciello Group has open-sourced Cupper, a documentation builder that creates fully accessible documentation. It’s a progressive web application (PWA) under the hood, so you can save and view content offline on supported devices
+
+## UnCSS
+Consider running automated process to help reduce your CSS payload, then use that information to decide which components belong in your core file. UnCSS (https://dbtr.co/unCSS) removes unused selectors from your CSS and outputs a new, reduced file. Another approach is to automatically determine the CSS necessary to render critical, above the fold content, and embed that in the head of your page to improve render speed. Addy Osmani has compiled a helpful list of Critical path CSS tools (https://dbtr.co/critical-CSS).
+
+## Using semver
+Many versioned projects use semver, short for semantic versioning, to distinguish between types of releases. Semver uses 3 integers separated by dots to indicate major.minor.patch versions, for example, v1.2.3.
+- Major versions (1.0.0) contain breaking changes from prior versions
+- Minor versions (0.1.0) add new functionality that is backward compatible
+- Patches (0.0.1) contain bugfixes for existing functionality and are backward compatible
+
+Semver adds another layer of confidence that certain upgrades should be seamless to users, while others may require regression testing or code changes.
+
