@@ -1,6 +1,6 @@
 # Design Systems Handbook
 
-Disclaimer: This book was not written by me, this repo is my personal summary of it, and nothing more. For the full book check [DesignBetter.Co](designbetter.co) by [Invision](https://www.invisionapp.com/).
+Disclaimer: This book was not written by me, this repo is my personal summary of it, and nothing more. For the full book check [DesignBetter.Co](https://designbetter.co) by [Invision](https://www.invisionapp.com/).
 
 # Introducing Design Systems
 
