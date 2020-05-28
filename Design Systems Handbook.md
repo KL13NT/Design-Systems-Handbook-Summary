@@ -16,9 +16,9 @@ Problems of consistency arise as a solution scales, in which case companies coul
 -   Design faster
 -   Create solutions that work for multiple problems
 
-> Even with more hands working faster, the reality is bespoke design simply doesn't scale. Design is scaling.
+> Even with more hands working faster, the reality is bespoke design simply doesn't scale.
 
-Invesment in design can exist in the following forms:
+Investment in design can exist in the following forms:
 
 -   The design team is growing
 -   Design is embedded in teams throughout the company
